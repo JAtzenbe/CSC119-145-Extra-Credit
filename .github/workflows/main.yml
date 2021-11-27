@@ -1,0 +1,43 @@
+//include in and out stream
+#include <iostream>
+//Include file stream
+#include <fstream>
+//Library Standard
+using namespace std;
+
+//Function prototype
+int getSum();
+//Main module
+int main()
+    {
+    //Calling sum
+    cout << "Sum: "<<getSum() <<endl;
+    }
+//Function definition
+int getSum()
+    {
+    //Naming file variable
+    ifstream inFile;
+    //Getting file
+    inFile.open ("numbers.txt");
+    //number variable
+    int number;
+    //Sum variable
+    int sum=0;
+    //If function for file failure
+    if (inFile.fail())
+    {
+        //Error message if file doesn't open
+        cout << "Error opening file." <<endl;
+        //Exit error message
+        exit (1);
+    }
+    //Pulling the numbers from the file
+    while (inFile>> number)
+        //Equation for Sum
+        sum = sum + number;
+    //Close file
+    inFile.close();
+    //Return sum
+    return sum;
+}
